@@ -123,6 +123,19 @@ let reverse = function (string) {
 // palindrome("rotor") // true
 // palindrome("wow") // true
 let palindrome = function (string) {
+  var noSpaces = function (val) {
+    return val !== ' ';
+  };
+
+  string = string.toLowerCase().split('').filter(noSpaces).join('');
+
+  if (string.length === 0 || string.length === 1) {
+    return true;
+  }
+  if (string[0] === string[string.length - 1]) {
+    return palindrome(string.slice(1, string.length - 1));
+  }
+  return false;
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
